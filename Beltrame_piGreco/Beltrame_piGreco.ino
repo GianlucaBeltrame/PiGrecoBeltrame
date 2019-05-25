@@ -110,6 +110,40 @@ else if(NumRandom>=6 && NumRandom <=7)                       //SE è NELLA CATEG
       }
    }
 
+else
+{PosRandom=random(0,4);
+lcd.setCursor(ArrPos[PosRandom],1);
+lcd.print("cuore");
+int Tempo1 = millis();
+int Tempo2;
+bool finito = false;
+while(!finito)
+       {if(digitalRead(ArrButtons[PosRandom])==HIGH)
+         {Vite++;
+          finito=true;
+         }
+          Tempo2=millis();
+          if(Tempo2-Tempo1>=1500)
+          {finito=true;
+          }
+       }
+    }
+  }
+}
+
+
+
+void loop(){
+if(PuntiCorrentePartita>Record)
+{
+  Record = PuntiCorrentePartita;
+}
+             Vite=5;
+             PuntiCorrentePartita=0;
+             SchermataIniziale();
+             BottoneInizialeMetodo(BottoneIniziale);
+             Gioco();
+            }
 
 
   
