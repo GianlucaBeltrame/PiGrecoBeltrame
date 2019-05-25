@@ -95,7 +95,20 @@ if(Tempo2- Tempo1>=2000)                                        //SE PASSANO 2 S
    }
   }
 
-
+else if(NumRandom>=6 && NumRandom <=7)                       //SE è NELLA CATEGORIA MALUS TOGLI UNA VITA 
+   {PosRandom=random(0,4);
+   lcd.setCursor(ArrPos[PosRandom],1);
+   lcd.print("malus");
+   int Tempo1 = millis();
+   int Tempo2;
+   bool finito = false;
+   while(!finito)
+      {if(digitalRead(ArrButtons[PosRandom])==HIGH)
+        {Vite --;
+         finito=true;
+        }
+      }
+   }
 
 
 
