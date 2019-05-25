@@ -35,6 +35,42 @@ void setup() {
 
   SchermataIniziale();
 }
+void SchermataGioco()
+{
+   lcd.clear();
+   lcd.setCursor(0,0);
+   lcd.print("Vite: " +String(Vite));
+   lcd.setCursor(9,0);
+   lcd.print("Punti:" + String(PuntiCorrentePartita));
+}
+void SchermataIniziale()
+{
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Start Game");
+  lcd.setCursor(0,1);
+  lcd.print("Record:" + String(Record));
+}
+
+
+void NumRandomMet(int valoreA, int valoreB)
+{
+  NumRandom = random(valoreA,  valoreB);
+}
+
+void BottoneInizialeMetodo (int bottone)
+{
+  bool fatto=false;
+
+  while(!fatto)
+  {
+  if (digitalRead(bottone)==HIGH)
+   {
+    fatto=true;
+   }
+  }
+}
+
 
 
 
