@@ -70,6 +70,31 @@ void BottoneInizialeMetodo (int bottone)
    }
   }
 }
+void Gioco()
+{bool fatto= false;
+SchermataGioco();
+while(!fatto && Vite>0)                                     //LOOP PER GIOCARE
+{ NumRandomMet(0,9);
+if(NumRandom >=0 && NumRandom <=5)
+  {PosRandom = random(0,4);                                  //POSIZIONE RANDOM
+   lcd.setCursor(ArrPos[PosRandom],1);
+   lcd.print("n");
+   int Tempo1 = millis();
+   int Tempo2;
+  bool finito=false;
+while(!finito)
+   {if (digitalRead(ArrButtons[PosRandom])==HIGH)
+     {PuntiCorrentePartita++;
+      finito=true;
+     }
+Tempo2=millis();
+if(Tempo2- Tempo1>=2000)                                        //SE PASSANO 2 SECONDI PERDI
+    {finito=true;
+     Vite--;
+    }
+   }
+  }
+
 
 
 
